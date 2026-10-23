@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
+import java.util.Locale;
 
 public class RecipeIngredientAdapter extends RecyclerView.Adapter<RecipeIngredientAdapter.ViewHolder> {
 
@@ -36,9 +37,9 @@ public class RecipeIngredientAdapter extends RecyclerView.Adapter<RecipeIngredie
 
         holder.txtIngredientName.setText(ri.getName());
 
-        String formattedQty = String.format("%.2f", ri.getQuantity());
+        String formattedQty = String.format(Locale.US, "%.2f", ri.getQuantity());
         if (formattedQty.endsWith(".00")) {
-            formattedQty = String.format("%.0f", ri.getQuantity());
+            formattedQty = String.format(Locale.US, "%.0f", ri.getQuantity());
         }
         holder.txtRequiredQuantity.setText(formattedQty + " " + ri.getUnit());
 
@@ -53,9 +54,9 @@ public class RecipeIngredientAdapter extends RecyclerView.Adapter<RecipeIngredie
         }
 
         if (match != null) {
-            String pQtyStr = String.format("%.2f", match.getQuantity());
+            String pQtyStr = String.format(Locale.US, "%.2f", match.getQuantity());
             if (pQtyStr.endsWith(".00")) {
-                pQtyStr = String.format("%.0f", match.getQuantity());
+                pQtyStr = String.format(Locale.US, "%.0f", match.getQuantity());
             }
 
             if (match.getQuantity() >= ri.getQuantity()) {

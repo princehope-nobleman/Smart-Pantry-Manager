@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements IngredientAdapter
         recyclerIngredients.setAdapter(adapter);
 
         fabAdd.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, AddEditIngrediantActivity.class);
+            Intent intent = new Intent(MainActivity.this, AddEditIngredientActivity.class);
             startActivity(intent);
         });
 
@@ -99,8 +99,8 @@ public class MainActivity extends AppCompatActivity implements IngredientAdapter
     }
 
     private void openEditScreen(Ingredient ingredient) {
-        Intent intent = new Intent(MainActivity.this, AddEditIngrediantActivity.class);
-        intent.putExtra("EXTRA_INGREDIENT_ID", ingredient.getId());
+        Intent intent = new Intent(MainActivity.this, AddEditIngredientActivity.class);
+        intent.putExtra(AddEditIngredientActivity.EXTRA_INGREDIENT_ID, ingredient.getId());
         startActivity(intent);
     }
 

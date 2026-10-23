@@ -13,7 +13,9 @@ import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 
-public class AddEditIngrediantActivity extends AppCompatActivity {
+import java.util.Locale;
+
+public class AddEditIngredientActivity extends AppCompatActivity {
 
     public static final String EXTRA_INGREDIENT_ID = "EXTRA_INGREDIENT_ID";
 
@@ -35,7 +37,7 @@ public class AddEditIngrediantActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_edit_ingrediant);
+        setContentView(R.layout.activity_add_edit_ingredient);
 
         dbHelper = DatabaseHelper.getInstance(this);
 
@@ -64,9 +66,9 @@ public class AddEditIngrediantActivity extends AppCompatActivity {
             toolbar.setTitle("Edit Ingredient");
             editName.setText(existingIngredient.getName());
 
-            String formattedQty = String.format("%.2f", existingIngredient.getQuantity());
+            String formattedQty = String.format(Locale.US, "%.2f", existingIngredient.getQuantity());
             if (formattedQty.endsWith(".00")) {
-                formattedQty = String.format("%.0f", existingIngredient.getQuantity());
+                formattedQty = String.format(Locale.US, "%.0f", existingIngredient.getQuantity());
             }
             editQuantity.setText(formattedQty);
 

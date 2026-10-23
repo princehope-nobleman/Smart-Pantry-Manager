@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AddEditUngredientActivity"
+            android:name=".AddEditIngredientActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity

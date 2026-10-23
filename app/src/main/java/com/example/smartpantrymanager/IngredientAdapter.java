@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
+import java.util.Locale;
 
 public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.ViewHolder> {
 
@@ -46,9 +47,9 @@ public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.Vi
 
         holder.txtName.setText(ingredient.getName());
 
-        String formattedQty = String.format("%.2f", ingredient.getQuantity());
+        String formattedQty = String.format(Locale.US, "%.2f", ingredient.getQuantity());
         if (formattedQty.endsWith(".00")) {
-            formattedQty = String.format("%.0f", ingredient.getQuantity());
+            formattedQty = String.format(Locale.US, "%.0f", ingredient.getQuantity());
         }
         holder.txtQuantity.setText(formattedQty + " " + ingredient.getUnit());
 
